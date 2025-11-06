@@ -1,0 +1,74 @@
+// Entry Styles
+// ============
+
+entry,
+.entry {
+  padding: $spacing_small $spacing_medium;
+  border: 1px solid $borders_color;
+  border-radius: $border_radius;
+  background-color: $base_color;
+  color: $text_color;
+  min-height: 24px;
+  transition: all $transition_duration $transition_type;
+  
+  &:focus {
+    border-color: $selected_bg_color;
+    box-shadow: 0 0 0 1px transparentize($selected_bg_color, 0.5);
+  }
+  
+  &:disabled {
+    background-color: $insensitive_bg_color;
+    color: $insensitive_fg_color;
+    border-color: $unfocused_borders_color;
+  }
+  
+  &.error {
+    border-color: $error_color;
+    
+    &:focus {
+      box-shadow: 0 0 0 1px transparentize($error_color, 0.5);
+    }
+  }
+  
+  &.warning {
+    border-color: $warning_color;
+    
+    &:focus {
+      box-shadow: 0 0 0 1px transparentize($warning_color, 0.5);
+    }
+  }
+  
+  selection {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+  }
+  
+  progress {
+    margin: 0 -$spacing_small;
+    border-radius: $border_radius;
+    border: none;
+  }
+  
+  // Icons inside entries
+  image {
+    &.left {
+      margin-right: $spacing_small;
+    }
+    
+    &.right {
+      margin-left: $spacing_small;
+    }
+  }
+}
+
+// Search entry
+searchentry,
+.search {
+  border-radius: 20px;
+  
+  image {
+    &.left {
+      margin-right: $spacing_small;
+    }
+  }
+}

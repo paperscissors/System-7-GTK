@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-44463YCSDB"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-44463YCSDB");
+        </script>
+
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <title>Benchoff Design Portfolio</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/assets/css/system7.css" />
+        <link rel="stylesheet" href="/assets/css/scrollbars.css" />
+        <link rel="stylesheet" href="/assets/css/calculator.css" />
+
+        <!-- JavaScript - load in dependency order -->
+        <script src="/assets/js/windows.js"></script>
+        <script src="/assets/js/filesystem.js"></script>
+        <script src="/assets/js/menus.js"></script>
+        <script src="/assets/js/state-manager.js"></script>
+        <script src="/assets/js/system7.js"></script>
+        <script src="/assets/js/calculator.js"></script>
+
+        <!-- MathJax for LaTeX rendering -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"],
+                    ],
+                },
+            };
+        </script>
+        <script
+            async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        ></script>
+    </head>
+    <body>
+        <div id="system7" class="system7">
+            <div class="menubar">
+                <div class="menubar-left">
+                    <div class="menubar-item" data-menu="apple">
+                        <img
+                            src="/assets/images/apple-logo.png"
+                            alt=""
+                            width="12"
+                            height="12"
+                        />
+                    </div>
+                    <div class="menubar-item" data-menu="file">File</div>
+                    <div class="menubar-item" data-menu="links">Links</div>
+                    <div class="menubar-item" data-menu="view">View</div>
+                    <div class="menubar-item" data-menu="special">Special</div>
+                </div>
+                <div class="menubar-right">
+                    <div class="clock" id="clock"></div>
+                    <div class="menubar-item app-menu" data-menu="application">
+                        <img
+                            src="/assets/images/finder-icon.png"
+                            alt=""
+                            class="app-icon"
+                            id="current-app-icon"
+                            width="16"
+                            height="16"
+                        />
+                        <span class="app-name" id="current-app-name"
+                            >Finder</span
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Area -->
+            <div id="desktop" class="desktop">
+                <!-- Desktop icons will be inserted here by JavaScript -->
+            </div>
+
+            <!-- Dropdown Menus -->
+            <div id="apple-menu" class="dropdown-menu">
+                <div class="dropdown-item" onclick="showAboutWindow()">
+                    About This Website...
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-item" onclick="createCalculator()">
+                    Calculator
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-item" onclick="toggleSound()">Sound</div>
+            </div>
+
+            <div id="application-menu" class="dropdown-menu">
+                <!-- Dynamic menu items will be inserted here -->
+            </div>
+
+            <div id="file-menu" class="dropdown-menu">
+                <div class="dropdown-item" onclick="openPage('Babelscope')">
+                    Babelscope
+                </div>
+                <div class="dropdown-item" onclick="openPage('FiniteAtari')">
+                    Finite Atari Machine
+                </div>
+                <div class="dropdown-item" onclick="openPage('SXM2PCIe')">
+                    SXM2 Sockets
+                </div>
+                <div class="dropdown-item" onclick="openPage('MacSSL')">
+                    SSL for classic Macs
+                </div>
+                <div class="dropdown-item" onclick="openPage('BusTideDisplay')">
+                    Bus Tracker Display
+                </div>
+                <div class="dropdown-item" onclick="openPage('IsoTherm')">
+                    Isolated Thermocouple
+                </div>
+                <div class="dropdown-item" onclick="openPage('Citicar')">
+                    Citicar
+                </div>
+                <div class="dropdown-item" onclick="openPage('nedry')">
+                    Dennis Nedry
+                </div>
+                <div class="dropdown-item" onclick="openPage('sfmta-api')">
+                    SFMTA-API
+                </div>
+                <div class="dropdown-item" onclick="openPage('CANconversion')">
+                    CAN Car Conversion
+                </div>
+                <div class="dropdown-item" onclick="openPage('QuicktakeLens')">
+                    Nikon Lens Adapter
+                </div>
+                <div class="dropdown-item" onclick="openPage('LinuxDevice')">
+                    The $15 Linux Machine
+                </div>
+                <div class="dropdown-item" onclick="openPage('dumb')">
+                    Portable Dumb Terminal
+                </div>
+                <div class="dropdown-item" onclick="openPage('MrRobot')">
+                    Mr. Robot Badge
+                </div>
+                <div class="dropdown-item" onclick="openPage('atapi')">
+                    Zip Drive Tower
+                </div>
+                <div class="dropdown-item" onclick="openPage('colorPCB')">
+                    Full Color Circuit Boards
+                </div>
+                <div class="dropdown-item" onclick="openPage('RGBgaming')">
+                    RGB Gaming Coaster
+                </div>
+                <div class="dropdown-item" onclick="openPage('FidgetSpinner')">
+                    Serial Fidget Spinner
+                </div>
+                <div class="dropdown-item" onclick="openPage('BaudBox')">
+                    Baud Box
+                </div>
+                <div class="dropdown-item" onclick="openPage('ShittyWall')">
+                    A Wall of Circuit Boards
+                </div>
+                <div class="dropdown-item" onclick="openPage('keyboard')">
+                    Silicone Membrane Keyboard
+                </div>
+                <div class="dropdown-item" onclick="openPage('Palmtop')">
+                    Injection Molded Palmtop
+                </div>
+                <div class="dropdown-item" onclick="openPage('MiniITX')">
+                    Retro-inspired Industrial Design
+                </div>
+                <div class="dropdown-item" onclick="openPage('BeBox')">
+                    Quarter-Scale Retrocomputing
+                </div>
+                <div class="dropdown-item" onclick="openPage('clamshell')">
+                    Hardened Clamshell Computer
+                </div>
+                <div class="dropdown-item" onclick="openPage('Tread')">
+                    3D Printed Tank Treads
+                </div>
+                <div class="dropdown-item" onclick="openPage('Porygon')">
+                    Porygon
+                </div>
+            </div>
+
+            <div id="links-menu" class="dropdown-menu">
+                <div
+                    class="dropdown-item"
+                    onclick="window.location.href='mailto:benchoff@gmail.com'"
+                >
+                    Email
+                </div>
+                <div
+                    class="dropdown-item"
+                    onclick="window.location.href='https://twitter.com/bbenchoff'"
+                >
+                    Twitter
+                </div>
+                <div
+                    class="dropdown-item"
+                    onclick="window.location.href='https://github.com/bbenchoff'"
+                >
+                    Github
+                </div>
+                <div
+                    class="dropdown-item"
+                    onclick="window.location.href='https://github.com/bbenchoff/CV/blob/main/Brian%20Benchoff%20-%20Resume.pdf'"
+                >
+                    Résumé
+                </div>
+            </div>
+
+            <div id="view-menu" class="dropdown-menu">
+                <div class="dropdown-item" onclick="setBackground('MacOS')">
+                    ✔ MacOS
+                </div>
+                <div class="dropdown-item" onclick="setBackground('cats')">
+                    Cats
+                </div>
+                <div class="dropdown-item" onclick="setBackground('circuits')">
+                    Circuits
+                </div>
+                <div class="dropdown-item" onclick="setBackground('grass')">
+                    Grass
+                </div>
+                <div class="dropdown-item" onclick="setBackground('pebbles')">
+                    Pebbles
+                </div>
+                <div class="dropdown-item" onclick="setBackground('plaid')">
+                    Plaid
+                </div>
+            </div>
+
+            <div id="special-menu" class="dropdown-menu">
+                <div class="dropdown-item" onclick="toggleTheme()">
+                    Switch to Modern Theme
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

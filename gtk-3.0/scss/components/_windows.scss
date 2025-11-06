@@ -1,0 +1,178 @@
+// System 7 Window Styles
+// ======================
+
+// Window decoration and titlebar
+decoration {
+  border-radius: 0;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+// GTK3 Window
+window {
+  background-color: $window_bg;
+  color: $fg_color;
+  
+  &.csd { // Client-side decorated windows
+    border: 1px solid $borders_color;
+    border-radius: 0;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    
+    &.maximized,
+    &.fullscreen,
+    &.tiled {
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+// Header bar (GTK3's titlebar)
+headerbar,
+.titlebar {
+  padding: 0 5px;
+  min-height: 22px;
+  border: none;
+  border-radius: 0;
+  background: $titlebar_bg;
+  color: $fg_color;
+  font-family: "System", -apple-system, "Chicago", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: none;
+  
+  // System 7 striped pattern for active window
+  &:backdrop {
+    background: $titlebar_bg;
+  }
+  
+  // Centered title with white background
+  .title {
+    padding: 2px 8px;
+    background: $window_bg;
+    border: 1px solid $borders_color;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  
+  .subtitle {
+    font-size: 10px;
+    opacity: 0.7;
+  }
+  
+  // Window control buttons
+  button {
+    padding: 0;
+    margin: 0 2px;
+    min-width: 12px;
+    min-height: 12px;
+    border-radius: 0;
+    
+    &.titlebutton {
+      border: 1px solid $borders_color;
+      background: $button_bg_classic;
+      box-shadow: 
+        inset 1px 1px 0 $button_highlight,
+        inset -1px -1px 0 $button_shadow;
+      
+      &:hover {
+        background: lighten($button_bg_classic, 5%);
+      }
+      
+      &:active {
+        background: $borders_color;
+        box-shadow: none;
+      }
+      
+      // Close button
+      &.close {
+        &:hover {
+          background: #ff5f57;
+          border-color: darken(#ff5f57, 20%);
+        }
+      }
+      
+      // Minimize button
+      &.minimize {
+        &:hover {
+          background: #ffbd2e;
+          border-color: darken(#ffbd2e, 20%);
+        }
+      }
+      
+      // Maximize button
+      &.maximize {
+        &:hover {
+          background: #28ca42;
+          border-color: darken(#28ca42, 20%);
+        }
+      }
+    }
+  }
+}
+
+// Dialogs
+dialog {
+  border: 1px solid $borders_color;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+  
+  .dialog-vbox {
+    margin: 0;
+  }
+  
+  .dialog-action-box {
+    margin: 10px;
+    
+    button {
+      margin: 0 5px;
+    }
+  }
+}
+
+// Message dialogs
+messagedialog {
+  .titlebar {
+    min-height: 22px;
+    background: $titlebar_bg;
+    border-bottom: 1px solid $borders_color;
+  }
+  
+  .dialog-vbox {
+    spacing: 10px;
+    padding: 10px;
+  }
+  
+  label {
+    font-family: "System", -apple-system, sans-serif;
+  }
+}
+
+// Popovers (dropdown menus, etc)
+popover {
+  border: 1px solid $borders_color;
+  border-radius: 0;
+  background-color: $window_bg;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+  
+  > contents {
+    padding: 2px 0;
+  }
+  
+  modelbutton {
+    padding: 2px 20px;
+    min-height: 20px;
+    font-size: 12px;
+    
+    &:hover {
+      background: $borders_color;
+      color: $selected_fg_color;
+    }
+  }
+  
+  separator {
+    margin: 2px 0;
+    min-height: 1px;
+    background: $borders_color;
+  }
+}

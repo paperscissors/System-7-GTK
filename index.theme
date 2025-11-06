@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=System7
+Comment=A modern GTK theme inspired by classic System 7
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=System7
+Comment=A modern GTK theme inspired by classic System 7
+GtkTheme=System7
+MetacityTheme=System7
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

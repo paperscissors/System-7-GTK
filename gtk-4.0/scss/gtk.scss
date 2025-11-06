@@ -1,0 +1,233 @@
+// System7 GTK4 Theme
+// ==================
+
+// Variables (GTK4 uses CSS custom properties)
+@import '../../gtk-3.0/scss/variables';
+@import '../../gtk-3.0/scss/mixins/button';
+
+// Root variables for GTK4
+:root {
+  --bg-color: #{$bg_color};
+  --fg-color: #{$fg_color};
+  --base-color: #{$base_color};
+  --text-color: #{$text_color};
+  --selected-bg-color: #{$selected_bg_color};
+  --selected-fg-color: #{$selected_fg_color};
+  --borders-color: #{$borders_color};
+  --error-color: #{$error_color};
+  --warning-color: #{$warning_color};
+  --success-color: #{$success_color};
+  --window-bg: #{$window_bg};
+  --titlebar-bg: #{$titlebar_bg};
+  --button-classic: #{$button_bg_classic};
+  --button-highlight: #{$button_highlight};
+  --button-shadow: #{$button_shadow};
+}
+
+// Base styles
+window {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+}
+
+.background {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+}
+
+// Buttons (GTK4)
+button {
+  @include button-base;
+  
+  &.suggested-action {
+    @include button-suggested;
+  }
+  
+  &.destructive-action {
+    @include button-destructive;
+  }
+  
+  &.flat {
+    @include button-flat;
+  }
+  
+  &.circular {
+    border-radius: 50%;
+    min-width: 32px;
+    min-height: 32px;
+  }
+}
+
+// Entry (GTK4)
+entry {
+  padding: $spacing_small $spacing_medium;
+  border: 1px solid $borders_color;
+  border-radius: $border_radius;
+  background-color: $base_color;
+  color: $text_color;
+  min-height: 32px;
+  
+  &:focus {
+    outline: 2px solid transparentize($selected_bg_color, 0.5);
+    outline-offset: -2px;
+  }
+  
+  &:disabled {
+    background-color: $insensitive_bg_color;
+    color: $insensitive_fg_color;
+  }
+}
+
+// Header bar (GTK4)
+headerbar {
+  padding: 0 6px;
+  min-height: 46px;
+  background: $headerbar_bg_color;
+  color: $fg_color;
+  box-shadow: $shadow_small;
+  
+  .title {
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    font-size: smaller;
+    opacity: 0.7;
+  }
+}
+
+// Lists (GTK4)
+listview,
+columnview {
+  background-color: $base_color;
+  color: $text_color;
+  
+  > row {
+    padding: $spacing_small $spacing_medium;
+    
+    &:hover {
+      background-color: mix($selected_bg_color, $base_color, 10%);
+    }
+    
+    &:selected {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+}
+
+// Switch (GTK4)
+switch {
+  min-width: 48px;
+  min-height: 24px;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, darken($bg_color, 15%), darken($bg_color, 10%));
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  
+  &:checked {
+    background: linear-gradient(to bottom, darken($selected_bg_color, 5%), $selected_bg_color);
+  }
+  
+  > slider {
+    min-width: 20px;
+    min-height: 20px;
+    margin: 2px;
+    border-radius: 10px;
+    background-color: $base_color;
+    box-shadow: $shadow_small;
+  }
+}
+
+// Check and Radio (GTK4)
+checkbutton {
+  > check {
+    min-width: 16px;
+    min-height: 16px;
+    border: 1px solid $borders_color;
+    border-radius: $border_radius;
+    background-color: $base_color;
+    
+    &:checked {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+}
+
+radiobutton {
+  > radio {
+    min-width: 16px;
+    min-height: 16px;
+    border: 1px solid $borders_color;
+    border-radius: 50%;
+    background-color: $base_color;
+    
+    &:checked {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+}
+
+// Progressbar (GTK4)
+progressbar {
+  > trough {
+    min-height: 6px;
+    border: 1px solid $borders_color;
+    border-radius: $border_radius;
+    background-color: darken($bg_color, 10%);
+    
+    > progress {
+      min-height: 6px;
+      border-radius: $border_radius;
+      background-color: $selected_bg_color;
+    }
+  }
+}
+
+// Scrollbar (GTK4)
+scrollbar {
+  > range {
+    > trough {
+      background-color: darken($bg_color, 5%);
+      border: 1px solid $borders_color;
+      
+      > slider {
+        min-width: 8px;
+        min-height: 8px;
+        margin: 2px;
+        border-radius: 8px;
+        background-color: mix($fg_color, $bg_color, 40%);
+        
+        &:hover {
+          background-color: mix($fg_color, $bg_color, 50%);
+        }
+      }
+    }
+  }
+}
+
+// Tooltips (GTK4)
+tooltip {
+  padding: $spacing_small $spacing_medium;
+  border-radius: $border_radius;
+  background-color: $tooltip_bg_color;
+  color: $tooltip_fg_color;
+  box-shadow: $shadow_medium;
+  
+  > * {
+    color: $tooltip_fg_color;
+  }
+}
+
+// Popovers (GTK4)
+popover {
+  padding: $spacing_medium;
+  border-radius: $border_radius;
+  background-color: $menu_bg_color;
+  box-shadow: $shadow_large;
+  
+  > contents {
+    padding: $spacing_medium;
+  }
+}

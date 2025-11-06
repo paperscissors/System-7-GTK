@@ -1,0 +1,159 @@
+// System 7 Scrollbar Styles
+// =========================
+
+scrollbar {
+  background-color: transparent;
+  border: none;
+  
+  &.vertical {
+    &:dir(ltr) { border-left: 1px solid $borders_color; }
+    &:dir(rtl) { border-right: 1px solid $borders_color; }
+  }
+  
+  &.horizontal {
+    border-top: 1px solid $borders_color;
+  }
+  
+  // Scrollbar trough (track)
+  trough {
+    min-width: 16px;
+    min-height: 16px;
+    background-color: $scrollbar_track;
+    border: 1px solid $borders_color;
+    
+    // Inner bevel effect
+    box-shadow: 
+      inset 1px 1px 0 #787877,
+      inset -1px -1px 0 #cdcccd;
+  }
+  
+  // Scrollbar slider (thumb)
+  slider {
+    min-width: 14px;
+    min-height: 14px;
+    margin: 1px;
+    background: $scrollbar_thumb;
+    border: 1px solid $borders_color;
+    border-radius: 0;
+    
+    // Classic System 7 purple thumb with pattern
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        darken($scrollbar_thumb, 20%) 1px,
+        darken($scrollbar_thumb, 20%) 2px
+      );
+    
+    // 3D bevel effect
+    box-shadow:
+      inset 1px 1px 0 lighten($scrollbar_thumb, 20%),
+      inset -1px -1px 0 darken($scrollbar_thumb, 20%);
+    
+    &:hover {
+      background-color: lighten($scrollbar_thumb, 10%);
+    }
+    
+    &:active {
+      background-color: darken($scrollbar_thumb, 10%);
+    }
+    
+    &:disabled {
+      background-color: $insensitive_bg_color;
+      background-image: none;
+      box-shadow: none;
+    }
+  }
+  
+  // Arrow buttons
+  button {
+    padding: 0;
+    min-width: 16px;
+    min-height: 16px;
+    border: 1px solid $borders_color;
+    border-radius: 0;
+    background: $button_bg_classic;
+    color: $fg_color;
+    
+    box-shadow:
+      inset 1px 1px 0 $button_highlight,
+      inset -1px -1px 0 $button_shadow;
+    
+    &:hover {
+      background: lighten($button_bg_classic, 5%);
+    }
+    
+    &:active {
+      box-shadow:
+        inset -1px -1px 0 $button_highlight,
+        inset 1px 1px 0 $button_shadow;
+      background: darken($button_bg_classic, 5%);
+    }
+    
+    &:disabled {
+      background: $insensitive_bg_color;
+      color: $insensitive_fg_color;
+      box-shadow: none;
+    }
+    
+    // Arrow styling
+    &.up { -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+    &.down { -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+    &.left { -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+    &.right { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
+  }
+  
+  &.vertical {
+    button {
+      &.up { border-bottom: none; }
+      &.down { border-top: none; }
+    }
+  }
+  
+  &.horizontal {
+    button {
+      &.left { border-right: none; }
+      &.right { border-left: none; }
+    }
+  }
+}
+
+// Overlay scrollbars (modern GTK apps)
+.scrollbar-overlay {
+  scrollbar {
+    opacity: 0.7;
+    
+    slider {
+      min-width: 6px;
+      min-height: 6px;
+      background: transparentize($fg_color, 0.5);
+      border: none;
+      border-radius: 3px;
+      box-shadow: none;
+      background-image: none;
+    }
+    
+    trough {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+    
+    button {
+      display: none;
+    }
+  }
+}
+
+// Junction between scrollbars
+scrolledwindow {
+  junction {
+    border: 1px solid $borders_color;
+    background: $button_bg_classic;
+    
+    &:backdrop {
+      background: $insensitive_bg_color;
+    }
+  }
+}

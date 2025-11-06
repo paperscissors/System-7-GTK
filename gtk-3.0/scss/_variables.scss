@@ -1,0 +1,55 @@
+// System7 Theme Variables
+// ========================
+
+// Classic Mac System 7 Colors
+$bg_color: #ffffff;  // Classic white background
+$fg_color: #000000;  // Black text
+$base_color: #ffffff;  // White base for entries/text areas
+$text_color: #000000;  // Black text
+$selected_bg_color: #000000;  // Black selection (inverts text)
+$selected_fg_color: #ffffff;  // White text on selection
+$tooltip_bg_color: #ffffe1;  // Classic yellow tooltip
+$tooltip_fg_color: #000000;  // Black tooltip text
+
+// System 7 Specific Colors
+$window_bg: #ffffff;
+$titlebar_bg: #d8d8d8;  // Light gray titlebar
+$titlebar_stripes: #000000;  // Black stripes on active titlebar
+$button_bg_classic: #dedede;  // Classic button gray
+$button_highlight: #ffffff;  // Button highlight
+$button_shadow: #bcbcbc;  // Button shadow
+$scrollbar_thumb: #9b9bf9;  // Purple-ish scrollbar thumb
+$scrollbar_track: #aaaaab;  // Gray scrollbar track
+
+// State Colors
+$insensitive_fg_color: #808080;  // Gray disabled text
+$insensitive_bg_color: #f0f0f0;  // Light gray disabled bg
+$borders_color: #000000;  // Black borders everywhere
+$unfocused_borders_color: #808080;  // Gray unfocused borders
+$warning_color: #f57900;
+$error_color: #cc0000;
+$success_color: #73d216;
+$info_color: #729fcf;
+
+// Classic Button Gradient
+$button_bg: linear-gradient(to bottom, $button_highlight 0%, $button_bg_classic 50%, $button_shadow 100%);
+$button_hover_bg: $button_bg;
+$button_active_bg: linear-gradient(to bottom, $button_shadow 0%, $button_bg_classic 50%, $button_highlight 100%);
+$headerbar_bg_color: $titlebar_bg;
+$menu_bg_color: $base_color;
+
+// Spacing
+$spacing_small: 4px;
+$spacing_medium: 8px;
+$spacing_large: 12px;
+$border_radius: 4px;
+$widget_spacing: 6px;
+
+// Transitions
+$transition_duration: 200ms;
+$transition_type: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Shadows
+$shadow_small: 0 1px 2px rgba(0, 0, 0, 0.1);
+$shadow_medium: 0 2px 4px rgba(0, 0, 0, 0.15);
+$shadow_large: 0 4px 8px rgba(0, 0, 0, 0.2);

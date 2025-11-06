@@ -1,0 +1,322 @@
+// System7 GTK3 Theme
+// ==================
+
+// Import variables
+@import 'variables';
+
+// Import mixins
+@import 'mixins/button';
+
+// Base styles
+* {
+  -GtkWidget-focus-line-width: 0;
+  -GtkWidget-focus-padding: 0;
+  -GtkToolButton-icon-spacing: 4;
+  -GtkTextView-error-underline-color: $error_color;
+  -GtkCheckButton-indicator-size: 16;
+  -GtkCheckMenuItem-indicator-size: 16;
+  -GtkScrolledWindow-scrollbar-spacing: 0;
+  -GtkScrolledWindow-scrollbars-within-bevel: 1;
+  -GtkToolItemGroup-expander-size: 11;
+  -GtkTreeView-expander-size: 11;
+  -GtkTreeView-horizontal-separator: 4;
+  -GtkWidget-text-handle-width: 20;
+  -GtkWidget-text-handle-height: 24;
+  -GtkDialog-button-spacing: 4;
+  -GtkDialog-action-area-border: 0;
+  
+  outline-color: transparentize($selected_bg_color, 0.5);
+  outline-style: solid;
+  outline-offset: -3px;
+  outline-width: 1px;
+  outline-radius: $border_radius;
+}
+
+// Window and base containers
+window {
+  color: $fg_color;
+  background-color: $bg_color;
+}
+
+.background {
+  color: $fg_color;
+  background-color: $bg_color;
+}
+
+.view,
+textview {
+  color: $text_color;
+  background-color: $base_color;
+  
+  &:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
+  
+  &:disabled {
+    color: $insensitive_fg_color;
+    background-color: $insensitive_bg_color;
+  }
+}
+
+// Import components
+@import 'components/buttons';
+@import 'components/entries';
+@import 'components/windows';
+@import 'components/scrollbars';
+
+// Header bars are handled in components/windows.scss
+
+// Toolbars
+toolbar,
+.toolbar {
+  padding: $spacing_small;
+  background-color: $bg_color;
+  border-bottom: 1px solid $borders_color;
+  
+  &.primary-toolbar {
+    background-color: darken($bg_color, 3%);
+  }
+}
+
+// Menus - System 7 style
+menu,
+.menu {
+  margin: 0;
+  padding: 2px 0;
+  background-color: $menu_bg_color;
+  border: 1px solid $borders_color;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+  
+  menuitem {
+    padding: 2px 20px;
+    min-height: 18px;
+    font-family: "System", -apple-system, sans-serif;
+    font-size: 12px;
+    
+    &:hover {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+    
+    &:disabled {
+      color: $insensitive_fg_color;
+    }
+    
+    arrow {
+      min-width: 16px;
+      min-height: 16px;
+      margin-left: 10px;
+    }
+    
+    check,
+    radio {
+      min-width: 16px;
+      min-height: 16px;
+      margin-right: 8px;
+    }
+  }
+  
+  separator {
+    margin: 2px 0;
+    min-height: 1px;
+    background: $borders_color;
+  }
+}
+
+// Scrollbars
+scrollbar {
+  background-color: darken($bg_color, 5%);
+  border: 1px solid $borders_color;
+  
+  slider {
+    min-width: 8px;
+    min-height: 8px;
+    margin: 2px;
+    border-radius: 8px;
+    background-color: mix($fg_color, $bg_color, 40%);
+    
+    &:hover {
+      background-color: mix($fg_color, $bg_color, 50%);
+    }
+    
+    &:active {
+      background-color: $selected_bg_color;
+    }
+  }
+  
+  &.horizontal slider { min-height: 8px; }
+  &.vertical slider { min-width: 8px; }
+}
+
+// Progress bars
+progressbar {
+  font-size: smaller;
+  color: $fg_color;
+  
+  trough {
+    min-height: 6px;
+    border: 1px solid $borders_color;
+    border-radius: $border_radius;
+    background-color: darken($bg_color, 10%);
+  }
+  
+  progress {
+    min-height: 6px;
+    border-radius: $border_radius;
+    background-color: $selected_bg_color;
+  }
+}
+
+// Switches
+switch {
+  min-width: 48px;
+  min-height: 24px;
+  border: 1px solid $borders_color;
+  border-radius: 12px;
+  background-color: darken($bg_color, 10%);
+  
+  &:checked {
+    background-color: $selected_bg_color;
+    border-color: darken($selected_bg_color, 10%);
+  }
+  
+  slider {
+    min-width: 20px;
+    min-height: 20px;
+    margin: 1px;
+    border-radius: 10px;
+    background-color: $base_color;
+    box-shadow: $shadow_small;
+  }
+}
+
+// Check and radio buttons
+checkbutton,
+radiobutton {
+  check,
+  radio {
+    min-width: 16px;
+    min-height: 16px;
+    margin: 0 $spacing_small 0 0;
+    border: 1px solid $borders_color;
+    background-color: $base_color;
+    
+    &:checked {
+      background-color: $selected_bg_color;
+      border-color: darken($selected_bg_color, 10%);
+      color: $selected_fg_color;
+    }
+    
+    &:disabled {
+      background-color: $insensitive_bg_color;
+      border-color: $unfocused_borders_color;
+    }
+  }
+  
+  check {
+    border-radius: $border_radius;
+  }
+  
+  radio {
+    border-radius: 50%;
+  }
+}
+
+// Tooltips
+tooltip {
+  padding: $spacing_small $spacing_medium;
+  border-radius: $border_radius;
+  background-color: $tooltip_bg_color;
+  color: $tooltip_fg_color;
+  box-shadow: $shadow_medium;
+  
+  label {
+    color: $tooltip_fg_color;
+  }
+}
+
+// Lists
+list {
+  background-color: $base_color;
+  border: 1px solid $borders_color;
+  
+  row {
+    padding: $spacing_small $spacing_medium;
+    
+    &:hover {
+      background-color: mix($selected_bg_color, $base_color, 10%);
+    }
+    
+    &:selected {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+}
+
+// Notebooks (tabs)
+notebook {
+  > header {
+    padding: 0;
+    border: none;
+    background-color: darken($bg_color, 3%);
+    
+    &.top {
+      border-bottom: 1px solid $borders_color;
+    }
+    
+    &.bottom {
+      border-top: 1px solid $borders_color;
+    }
+    
+    &.left {
+      border-right: 1px solid $borders_color;
+    }
+    
+    &.right {
+      border-left: 1px solid $borders_color;
+    }
+    
+    tabs {
+      margin: 0;
+    }
+    
+    tab {
+      padding: $spacing_small $spacing_large;
+      min-height: 24px;
+      background-color: transparent;
+      border: 1px solid transparent;
+      
+      &:hover {
+        background-color: mix($bg_color, $base_color, 50%);
+      }
+      
+      &:checked {
+        background-color: $bg_color;
+        border-color: $borders_color;
+        
+        &.top {
+          border-bottom-color: $bg_color;
+        }
+        
+        &.bottom {
+          border-top-color: $bg_color;
+        }
+        
+        &.left {
+          border-right-color: $bg_color;
+        }
+        
+        &.right {
+          border-left-color: $bg_color;
+        }
+      }
+    }
+  }
+  
+  > stack {
+    background-color: $bg_color;
+  }
+}

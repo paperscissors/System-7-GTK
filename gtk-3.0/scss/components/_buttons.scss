@@ -1,0 +1,98 @@
+// Button Styles
+// =============
+
+button {
+  @include button-base;
+  
+  &.suggested-action {
+    @include button-suggested;
+  }
+  
+  &.destructive-action {
+    @include button-destructive;
+  }
+  
+  &.flat {
+    @include button-flat;
+  }
+  
+  &.circular {
+    border-radius: 50%;
+    padding: $spacing_small;
+    min-width: 32px;
+    min-height: 32px;
+  }
+  
+  &.text-button {
+    padding-left: $spacing_large;
+    padding-right: $spacing_large;
+  }
+  
+  &.image-button {
+    padding: $spacing_small;
+  }
+  
+  &.link {
+    @include button-flat;
+    color: $selected_bg_color;
+    
+    &:hover {
+      color: darken($selected_bg_color, 10%);
+      text-decoration: underline;
+    }
+  }
+}
+
+// Toolbar buttons
+toolbar button,
+.toolbar button {
+  @include button-flat;
+  
+  &:hover {
+    background: transparentize($fg_color, 0.9);
+    border-radius: $border_radius;
+  }
+  
+  &:active,
+  &:checked {
+    background: transparentize($fg_color, 0.85);
+  }
+}
+
+// Header bar buttons
+headerbar button,
+.titlebar button {
+  @include button-flat;
+  
+  &:hover {
+    background: transparentize($fg_color, 0.9);
+    border-radius: $border_radius;
+  }
+  
+  &:active,
+  &:checked {
+    background: transparentize($fg_color, 0.85);
+  }
+  
+  &.suggested-action {
+    @include button-suggested;
+  }
+  
+  &.destructive-action {
+    @include button-destructive;
+  }
+}
+
+// Spinbutton
+spinbutton {
+  button {
+    min-width: 16px;
+    min-height: 16px;
+    padding: 0;
+    border-radius: 0;
+    
+    &:last-child {
+      border-radius: 0 $border_radius $border_radius 0;
+    }
+  }
+}
